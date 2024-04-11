@@ -1,1 +1,1 @@
-export * from './FooterContainer.tsx';
+export * from './Pagination.tsx';

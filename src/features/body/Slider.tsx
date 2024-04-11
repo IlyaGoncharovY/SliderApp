@@ -1,15 +1,48 @@
-import React from 'react';
-import {ScrollView, StyleSheet} from 'react-native';
+import React, {FC, useRef} from 'react';
+import {
+  NativeScrollEvent,
+  NativeSyntheticEvent,
+  ScrollView,
+  StyleSheet,
+} from 'react-native';
 import {AwesomeComponent, CoolComponent, TryNowComponent} from './components';
 
-export const Slider = () => {
+interface ISlider {
+  setActiveIndex: (value: number) => void;
+}
+
+export const Slider: FC<ISlider> = ({setActiveIndex}) => {
+  const scrollViewRef = useRef<ScrollView>(null);
+
+  const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const contentOffsetX = event.nativeEvent.contentOffset.x;
+    const index = Math.floor(
+      contentOffsetX / event.nativeEvent.layoutMeasurement.width,
+    );
+    setActiveIndex(index);
+  };
+
+  const handleMomentumScrollEnd = (
+    event: NativeSyntheticEvent<NativeScrollEvent>,
+  ) => {
+    const contentOffsetX = event.nativeEvent.contentOffset.x;
+    const index = Math.round(
+      contentOffsetX / event.nativeEvent.layoutMeasurement.width,
+    );
+    setActiveIndex(index);
+  };
+
   return (
     <ScrollView
+      ref={scrollViewRef}
       horizontal={true}
       pagingEnabled={true}
       showsHorizontalScrollIndicator={false}
       style={styles.container}
-      snapToAlignment={'center'}>
+      snapToAlignment={'center'}
+      onScroll={handleScroll}
+      onMomentumScrollEnd={handleMomentumScrollEnd}
+      scrollEventThrottle={200}>
       <CoolComponent />
       <AwesomeComponent />
       <TryNowComponent />
