@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, StyleSheet} from 'react-native';
-import {AwesomeItem, CoolItem, TryNowItem} from './components';
+import {AwesomeComponent, CoolComponent, TryNowComponent} from './components';
 
 export const Slider = () => {
   return (
@@ -10,9 +10,9 @@ export const Slider = () => {
       showsHorizontalScrollIndicator={false}
       style={styles.container}
       snapToAlignment={'center'}>
-      <CoolItem />
-      <AwesomeItem />
-      <TryNowItem />
+      <CoolComponent />
+      <AwesomeComponent />
+      <TryNowComponent />
     </ScrollView>
   );
 };
