@@ -1,16 +1,36 @@
-import React from 'react';
-import {FlatList, View} from 'react-native';
-import {DataSet, DataSetType} from '../../common/data';
-import {SliderItem} from './item/SliderItem.tsx';
+import React, {FC} from 'react';
+import {ScrollView, StyleSheet} from 'react-native';
+import {AwesomeComponent, CoolComponent, TryNowComponent} from './components';
+import {useSliderEvent} from './hook/useSliderEvent.ts';
 
-export const Slider = () => {
+interface ISlider {
+  setActiveIndex: (value: number) => void;
+}
+
+export const Slider: FC<ISlider> = ({setActiveIndex}) => {
+  const {scrollViewRef, handleScroll, handleMomentumScrollEnd} =
+    useSliderEvent(setActiveIndex);
+
   return (
-    <View>
-      <FlatList
-        data={DataSet}
-        renderItem={({item}) => <SliderItem sliderItem={item} />}
-        keyExtractor={(item: DataSetType) => item.id}
-      />
-    </View>
+    <ScrollView
+      ref={scrollViewRef}
+      horizontal={true}
+      pagingEnabled={true}
+      showsHorizontalScrollIndicator={false}
+      style={styles.container}
+      snapToAlignment={'center'}
+      onScroll={handleScroll}
+      onMomentumScrollEnd={handleMomentumScrollEnd}
+      scrollEventThrottle={200}>
+      <CoolComponent />
+      <AwesomeComponent />
+      <TryNowComponent />
+    </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+  },
+});
