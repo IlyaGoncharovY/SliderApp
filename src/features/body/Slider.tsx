@@ -1,16 +1,24 @@
 import React from 'react';
-import {FlatList, View} from 'react-native';
-import {DataSet, DataSetType} from '../../common/data';
-import {SliderItem} from './item/SliderItem.tsx';
+import {ScrollView, StyleSheet} from 'react-native';
+import {AwesomeItem, CoolItem, TryNowItem} from './components';
 
 export const Slider = () => {
   return (
-    <View>
-      <FlatList
-        data={DataSet}
-        renderItem={({item}) => <SliderItem sliderItem={item} />}
-        keyExtractor={(item: DataSetType) => item.id}
-      />
-    </View>
+    <ScrollView
+      horizontal={true}
+      pagingEnabled={true}
+      showsHorizontalScrollIndicator={false}
+      style={styles.container}
+      snapToAlignment={'center'}>
+      <CoolItem />
+      <AwesomeItem />
+      <TryNowItem />
+    </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flexGrow: 1,
+  },
+});
