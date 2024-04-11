@@ -3,7 +3,7 @@ import {SafeAreaView, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Slider} from './features/body';
 import {Header} from './features/header';
-import {Pagination} from './features/footer/Pagination.tsx';
+import {FooterContainer} from './features/footer';
 
 export const App = () => {
   return (
@@ -11,8 +11,8 @@ export const App = () => {
       <SafeAreaView style={styles.container}>
         <Header />
         <Slider />
-        <Pagination />
       </SafeAreaView>
+      <FooterContainer />
     </LinearGradient>
   );
 };
