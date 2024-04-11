@@ -1,37 +1,29 @@
 import React, {FC} from 'react';
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {ButtonTitles} from '../../common/data';
+import {gStyles} from '../../common/style';
 
 interface IPagination {
   activeIndex: number;
 }
 
 export const Pagination: FC<IPagination> = ({activeIndex}) => {
-
-  let titleButton;
-  switch (activeIndex) {
-    case 0:
-      titleButton = 'Cool!';
-      break;
-    case 1:
-      titleButton = 'Awesome!';
-      break;
-    case 2:
-      titleButton = 'Try now!';
-      break;
-    default:
-      titleButton = 'Cool!';
-      break;
-  }
-
   return (
     <View style={styles.container}>
       <View style={styles.dotContainer}>
-        <View style={activeIndex === 0 ? styles.activeDot : styles.dot} />
-        <View style={activeIndex === 1 ? styles.activeDot : styles.dot} />
-        <View style={activeIndex === 2 ? styles.activeDot : styles.dot} />
+        {ButtonTitles.map((_, index) => (
+          <View
+            key={index}
+            style={[
+              gStyles.gBackColor,
+              styles.dot,
+              activeIndex === index ? styles.activeDot : styles.dot,
+            ]}
+          />
+        ))}
       </View>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>{titleButton}</Text>
+      <TouchableOpacity style={[gStyles.gBackColor, styles.button]}>
+        <Text style={styles.buttonText}>{ButtonTitles[activeIndex]}</Text>
       </TouchableOpacity>
     </View>
   );
@@ -54,14 +46,10 @@ const styles = StyleSheet.create({
     width: 11,
     height: 11,
     borderRadius: 50,
-    backgroundColor: '#FFFFFF',
     opacity: 0.3,
   },
   activeDot: {
-    width: 11,
-    height: 11,
-    borderRadius: 50,
-    backgroundColor: '#FFFFFF',
+    opacity: 1,
   },
   button: {
     width: 335,
@@ -70,7 +58,6 @@ const styles = StyleSheet.create({
     borderRadius: 50,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#FFFFFF',
   },
   buttonText: {
     fontSize: 22,

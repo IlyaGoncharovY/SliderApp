@@ -1,6 +1,7 @@
 import {StyleSheet, Text, View} from 'react-native';
 import {AwesomeArrType} from '../../../../../common/data';
 import {FC} from 'react';
+import {gStyles} from '../../../../../common/style';
 
 interface IAwesomeItem {
   awesomeEl: AwesomeArrType;
@@ -8,10 +9,14 @@ interface IAwesomeItem {
 export const AwesomeItem: FC<IAwesomeItem> = ({awesomeEl}) => {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{awesomeEl.title}</Text>
-      <Text style={styles.description}>{awesomeEl.description}</Text>
-      <Text style={styles.description}>{awesomeEl.anotherDescription}</Text>
-      <Text style={styles.otherText}>and others...</Text>
+      <Text style={[gStyles.gColor, styles.title]}>{awesomeEl.title}</Text>
+      <Text style={[gStyles.gColor, styles.description]}>
+        {awesomeEl.description}
+      </Text>
+      <Text style={[gStyles.gColor, styles.description]}>
+        {awesomeEl.anotherDescription}
+      </Text>
+      <Text style={[gStyles.gColor, styles.otherText]}>and others...</Text>
     </View>
   );
 };
@@ -21,18 +26,15 @@ const styles = StyleSheet.create({
     marginVertical: 30,
   },
   title: {
-    color: '#ffffff',
     opacity: 0.7,
     fontSize: 34,
     fontWeight: 'bold',
   },
   description: {
     fontSize: 24,
-    color: '#FFFFFF',
     fontWeight: 'bold',
   },
   otherText: {
     fontSize: 24,
-    color: '#FFFFFF',
   },
 });
