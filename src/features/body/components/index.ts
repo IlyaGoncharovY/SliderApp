@@ -1,3 +1,3 @@
-export * from './CoolItem.tsx';
-export * from './AwesomeItem.tsx';
-export * from './TryNowItem.tsx';
+export * from './cool/CoolComponent.tsx';
+export * from './awesome/AwesomeComponent.tsx';
+export * from './try/TryNowComponent.tsx';
