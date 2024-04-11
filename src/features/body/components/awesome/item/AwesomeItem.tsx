@@ -18,7 +18,7 @@ export const AwesomeItem: FC<IAwesomeItem> = ({awesomeEl}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 40,
+    marginVertical: 30,
   },
   title: {
     color: '#ffffff',

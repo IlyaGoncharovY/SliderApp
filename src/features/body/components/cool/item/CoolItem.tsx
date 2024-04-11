@@ -21,7 +21,7 @@ export const CoolItem: FC<ICoolItem> = ({coolEl}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 50,
+    marginVertical: 30,
   },
   title: {
     color: '#ffffff',

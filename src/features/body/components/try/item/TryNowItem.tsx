@@ -19,7 +19,7 @@ export const TryNowItem: FC<ITryNowItem> = ({tryNowEl, isFirst}) => {
 
 const styles = StyleSheet.create({
   container: {
-    marginVertical: 40,
+    marginVertical: 30,
   },
   firstEl: {
     color: '#ffffff',
