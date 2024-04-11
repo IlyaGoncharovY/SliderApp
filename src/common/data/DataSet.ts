@@ -16,6 +16,8 @@ export type TryNowArrType = {
   title: string;
 };
 
+export type ButtonTitlesType = 'Cool!' | 'Awesome!' | 'Try now!';
+
 export const CoolArr: CoolArrType[] = [
   {
     id: '1',
@@ -39,7 +41,7 @@ export const AwesomeArr: AwesomeArrType[] = [
     id: '2',
     title: 'Self',
     description: 'What I am here to learn in life?',
-    anotherDescription: ' Am I on the right path?',
+    anotherDescription: 'Am I on the right path?',
   },
   {
     id: '3',
@@ -70,4 +72,10 @@ export const TryNowArr: TryNowArrType[] = [
     id: '5',
     title: 'Get your answer',
   },
+];
+
+export const ButtonTitles: ButtonTitlesType[] = [
+  'Cool!',
+  'Awesome!',
+  'Try now!',
 ];
