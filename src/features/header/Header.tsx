@@ -1,10 +1,21 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {Image, StyleSheet, View} from 'react-native';
 
 export const Header = () => {
   return (
     <View>
-      <Text>Header</Text>
+      <Image
+        source={require('../../common/assects/logo.png')}
+        style={styles.img}
+      />
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  img: {
+    width: 108,
+    height: 35,
+    margin: 20,
+  },
+});
