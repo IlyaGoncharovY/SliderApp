@@ -1,11 +1,12 @@
 import React, {FC} from 'react';
-import {Button, StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 
 interface IPagination {
   activeIndex: number;
 }
 
 export const Pagination: FC<IPagination> = ({activeIndex}) => {
+
   let titleButton;
   switch (activeIndex) {
     case 0:
@@ -29,7 +30,9 @@ export const Pagination: FC<IPagination> = ({activeIndex}) => {
         <View style={activeIndex === 1 ? styles.activeDot : styles.dot} />
         <View style={activeIndex === 2 ? styles.activeDot : styles.dot} />
       </View>
-      <Button title={titleButton} />
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>{titleButton}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -59,5 +62,18 @@ const styles = StyleSheet.create({
     height: 11,
     borderRadius: 50,
     backgroundColor: '#FFFFFF',
+  },
+  button: {
+    width: 335,
+    height: 44,
+    borderWidth: 1,
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#FFFFFF',
+  },
+  buttonText: {
+    fontSize: 22,
+    color: 'rgba(5, 111, 221, 1)',
   },
 });
