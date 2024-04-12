@@ -15,8 +15,8 @@ interface IGenericComponent<T> {
 
 /**
  * common component for render lists scrolling
- * @param data
- * @param renderItemComponent
+ * @param data data: T[]
+ * @param renderItemComponent renderItemComponent: <T>({item, index}: {item: T, index?: number}) => JSX.Element
  * @constructor
  */
 

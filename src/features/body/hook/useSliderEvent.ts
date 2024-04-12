@@ -7,10 +7,10 @@ import {
 
 /**
  * custom hook for check event. and ref
- * @param setActiveIndex
- * @return setActiveIndex
- * @return setActiveIndex
- * @return setActiveIndex
+ * @param setActiveIndex - (value: number) => void
+ * @return scrollViewRef : MutableRefObject<ScrollView>
+ * @return handleScroll : (event: NativeSyntheticEvent<NativeScrollEvent>) => void
+ * @return handleMomentumScrollEnd : (event: NativeSyntheticEvent<NativeScrollEvent>) => void
  */
 
 export const useSliderEvent = (setActiveIndex: (value: number) => void) => {
