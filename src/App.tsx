@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {SafeAreaView, StyleSheet} from 'react-native';
+import {SafeAreaView, StatusBar, StyleSheet} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {Slider} from './features/body';
 import {Header} from './features/header';
@@ -9,18 +9,22 @@ export const App = () => {
   const [activeIndex, setActiveIndex] = useState<number>(0);
 
   return (
-    <LinearGradient colors={['#6B73FF', '#000DFF']} style={styles.container}>
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <StatusBar hidden />
+      <LinearGradient colors={['#6B73FF', '#000DFF']} style={styles.gradient}>
         <Header />
         <Slider setActiveIndex={setActiveIndex} />
-      </SafeAreaView>
-      <Pagination activeIndex={activeIndex} />
-    </LinearGradient>
+        <Pagination activeIndex={activeIndex} />
+      </LinearGradient>
+    </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
+  },
+  gradient: {
     flex: 1,
   },
 });

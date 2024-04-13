@@ -8,7 +8,7 @@ interface ISlider {
 }
 
 export const Slider: FC<ISlider> = ({setActiveIndex}) => {
-  const {scrollViewRef, handleScroll, handleMomentumScrollEnd} =
+  const {scrollViewRef, handleMomentumScrollEnd} =
     useSliderEvent(setActiveIndex);
 
   return (
@@ -19,7 +19,7 @@ export const Slider: FC<ISlider> = ({setActiveIndex}) => {
       showsHorizontalScrollIndicator={false}
       style={styles.container}
       snapToAlignment={'center'}
-      onScroll={handleScroll}
+      onScroll={handleMomentumScrollEnd}
       onMomentumScrollEnd={handleMomentumScrollEnd}
       scrollEventThrottle={200}>
       <CoolComponent />
